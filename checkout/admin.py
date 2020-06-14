@@ -1,4 +1,5 @@
 from django.contrib import admin
+<<<<<<< HEAD
 from .models import Order, OrderLineItem
 
 
@@ -28,3 +29,7 @@ class OrderAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Order, OrderAdmin)
+=======
+
+# Register your models here.
+>>>>>>> 19cb9d9654655786429dc13334ba3523a1c87595

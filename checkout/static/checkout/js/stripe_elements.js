@@ -48,7 +48,7 @@ var form = document.getElementById('payment-form');
 
 form.addEventListener('submit', function(ev) {
     ev.preventDefault();
-    card.update({ 'disabled': true});
+    card.update({ 'disabled': true}); // prevent multiple submition
     $('#submit-button').attr('disabled', true);
     stripe.confirmCardPayment(clientSecret, {
         payment_method: {
@@ -63,9 +63,10 @@ form.addEventListener('submit', function(ev) {
                 </span>
                 <span>${result.error.message}</span>`;
             $(errorDiv).html(html);
-            card.update({ 'disabled': false});
-            $('#submit-button').attr('disabled', false);
-        } else {
+            card.update({ 'disabled': false});  // if there is an errror 
+            $('#submit-button').attr('disabled', false);// this let the user to fix it
+        } 
+        else {
             if (result.paymentIntent.status === 'succeeded') {
                 form.submit();
             }

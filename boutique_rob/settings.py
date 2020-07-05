@@ -21,10 +21,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'DEVELOPMENT' in os.environ  # debug only if in local environment...
+DEBUG = 'DEVELOPMENT' in os.environ
 
-ALLOWED_HOSTS = ['boutique-rob.herokuapp.com', 'localhost']
-# heroku es local host is munkodhet egyutt
+ALLOWED_HOSTS = ['ckz8780-boutique-ado.herokuapp.com', 'localhost']
 
 
 # Application definition
@@ -76,7 +75,7 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
-                'django.template.context_processors.request',  # required by allauth
+                'django.template.context_processors.request', # required by allauth
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
@@ -114,9 +113,6 @@ LOGIN_REDIRECT_URL = '/'
 
 WSGI_APPLICATION = 'boutique_rob.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
@@ -176,7 +172,6 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-
 if 'USE_AWS' in os.environ:
     # Cache control
     AWS_S3_OBJECT_PARAMETERS = {
@@ -209,3 +204,4 @@ STRIPE_CURRENCY = 'usd'
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
+DEFAULT_FROM_EMAIL = 'boutiqueado@example.com'
